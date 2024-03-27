@@ -3,40 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pottery Store</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Pottery Store</h1>
+    <header class="banner">
+        <h1>Antique Pottery</h1>
+        <nav>
+            <ul>
+                <li><a href="#all">All Products</a></li>
+                <li><a href="#Pottery">Pottery</a></li>
+            </ul>
+        </nav>
     </header>
+
     <div class="container">
-        <div class="product">
-            <div class="product-item">
-                <img src="pottery1.jpg" alt="Pottery 1">
-                <h2>Crockett Bowl</h2>
-                <p>Age: 800 - 850 A.D.</p>
-                <p>Price: $300.00</p>
-                <a href="/Crockett-Bowl"><button>More Details</button></a>
+        <div id="all" class="category">
+            <h2>All Products</h2>
+            <div class="product">
+                <div class="image-container">
+                    <img src="assets/product1.jpg" alt="Product 1" class="active">
+                    <img src="assets/product1_2.jpg" alt="Product 1 Alternate">
+                    <button class="prev" onclick="changeImage(-1)">❮</button>
+                    <button class="next" onclick="changeImage(1)">❯</button>
+                </div>
+                <h3>Crockett Bowl</h3>
+                <p class="description">Age: 800 - 850 A.D.</p>
+                <p class="price">$300.00</p>
+                <a href="product1_details.html" class="more-details">More Details</a>
             </div>
-            <div class="product-item">
-                <img src="pottery2.jpg" alt="Pottery 2">
-                <h2>Anazia Corrugated</h2>
-                <p>Age: 1200 A.D.</p>
-                <p>Price: $225.00</p>
-                <a href="/Anazia-Corrugated"><button>More Details</button></a>
-            </div>
-            <div class="product-item">
-                <img src="pottery2.jpg" alt="Pottery 3">
-                <h2>Case Grande</h2>
-                <p>Age: 1200-1400 A.D.</p>
-                <p>Price: Not Available</p>
-                <a href="/Case-Grande"><button>More Details</button></a>
-            </div>
+            <!-- Add more products -->
+        </div>
+
+        <div id="Pottery" class="category">
+            <h2>Pottery</h2>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Pottery Store. All rights reserved.</p>
-    </footer>
+
+    <script>
+        let slideIndex = 1;
+
+        function changeImage(n) {
+            showImage(slideIndex += n);
+        }
+
+        function showImage(n) {
+            let i;
+            let images = document.getElementsByClassName("image-container")[slideIndex - 1].getElementsByTagName("img");
+            if (n > images.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = images.length}
+            for (i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+            images[slideIndex - 1].style.display = "block";
+        }
+    </script>
 </body>
 </html>
