@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your CSS styles here */
+    </style>
 </head>
 <body>
     <header class="banner">
@@ -22,10 +25,10 @@
             <h2>All Products</h2>
             <div class="product">
                 <div class="image-container">
-                    <img src="assets/product1.jpg" alt="Product 1" class="active">
-                    <img src="assets/product1_2.jpg" alt="Product 1 Alternate">
-                    <button class="prev" onclick="changeImage(-1)">❮</button>
-                    <button class="next" onclick="changeImage(1)">❯</button>
+                    <img src="assets/Crockett-Bowl-1.jpg" alt="Product 1" class="active">
+                    <img src="assets/Crockett-Bowl-2.jpg" alt="Product 1 Alternate">
+                    <button class="prev">❮</button>
+                    <button class="next">❯</button>
                 </div>
                 <h3>Crockett Bowl</h3>
                 <p class="description">Age: 800 - 850 A.D.</p>
@@ -40,23 +43,6 @@
         </div>
     </div>
 
-    <script>
-        let slideIndex = 1;
-
-        function changeImage(n) {
-            showImage(slideIndex += n);
-        }
-
-        function showImage(n) {
-            let i;
-            let images = document.getElementsByClassName("image-container")[slideIndex - 1].getElementsByTagName("img");
-            if (n > images.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = images.length}
-            for (i = 0; i < images.length; i++) {
-                images[i].style.display = "none";
-            }
-            images[slideIndex - 1].style.display = "block";
-        }
-    </script>
+    <script src="js/image-slider.js"></script>
 </body>
 </html>
